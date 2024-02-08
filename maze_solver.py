@@ -17,7 +17,6 @@ class Maze_solver:
         for i in self.angle_range:
             self.distance[i] = self.robotcontrol.get_laser(i)
         
-
     # Move the robot forward
     def walk(self):
         self.robotcontrol.move_straight()
