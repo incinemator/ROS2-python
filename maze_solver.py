@@ -8,12 +8,12 @@ class Maze_solver:
         self.robotcontrol = RobotControl()
         self.front_distance = 0
         self.distance = []
-        self.range = []
+        self.angle_range = []
         self.linear_time = t
 
     # Check the robot's distance from front, left and right walls and print them on screen 
-    def check_wall_distance(self.range):
-        for i in self.range:
+    def check_wall_distance(self.angle_range):
+        for i in self.angle_range:
             self.distance[i] = self.robotcontrol.get_laser(i)
         
 
