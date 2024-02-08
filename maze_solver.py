@@ -23,29 +23,9 @@ class Maze_solver:
         self.robotcontrol.move_straight()
 
     # Turn the robot 90 degrees to the riht
-    def turn_right_ortho(self):
-        self.robotcontrol.rotate(self.right_angle)
+    def turn(self):
+        self.robotcontrol.rotate(self.angles)
     
-    # Turn the robot 45 degrees to the right
-    def turn_right(self):
-        self.robotcontrol.rotate(self.right_angle_low)
-
-    # Turn the robot 20 degrees to the right
-
-    def turn_slight_right(self):
-        self.robotcontrol.rotate(self.right_angle_slight)
-
-    # Turn the robot 90 degrees to the left
-    def turn_left_ortho(self):
-        self.robotcontrol.rotate(self.left_angle)
-
-    # Turn the robot 45 degrees to the left
-    def turn_left(self):
-        self.robotcontrol.rotate(self.left_angle_low)
-    
-    # Turn the robot 20 degrees to the right
-    def turn_slight_left(self):
-        self.robotcontrol.rotate(self.left_angle_slight)
     
     # Re-center the robot
     # This method checks the difference between left and right wall distance.
