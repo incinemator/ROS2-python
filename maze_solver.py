@@ -35,14 +35,14 @@ class Maze_solver:
         if not abs(self.distance[360] - self.distance[0]) < 0.1:
             # Robot is closer to the left
             if self.distance[360] > self.distance[0] and self.distance[360] < 1:
-                self.turn_slight_right()
+                self.turn()
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
             
             # Robot is in a left corner
             elif self.distance[360] > self.distance[0] and self.distance[360] > 1:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                self.turn_right()
+                self.turn()
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
 
