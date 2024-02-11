@@ -85,7 +85,7 @@ class Maze_solver:
                     elif self.distance[360] < 0.5:
                         print("Right corner, turning left")
                         self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                        self.turn_left_ortho()
+                        self.turn()
                         self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                         self.check_wall_distance()
                     else:
