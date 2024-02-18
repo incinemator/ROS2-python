@@ -30,9 +30,10 @@ class Maze_solver:
     # This method checks the difference between left and right wall distance.
     # If the difference is greater than 0.1 it attempts to re-center the robot
     # and checks if it is in a corner.
-    # self.distance[0] is distance from the front
+    # self.distance[0]: distance from the right
+    # self.distance[719]: distance from the left 
     def recenter(self):
-        if not abs(self.distance[360] - self.distance[0]) < 0.1:
+        if not abs(self.distance[0] - self.distance[719]) < 0.1:
             # Robot is closer to the left
             if self.distance[360] > self.distance[0] and self.distance[360] < 1:
                 self.turn()
