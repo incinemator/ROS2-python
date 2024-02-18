@@ -41,14 +41,14 @@ class Maze_solver:
                 self.check_wall_distance()
             
             # Robot is in a left corner
-            elif self.distance[360] > self.distance[0] and self.distance[360] > 1:
+            elif self.distance[0] > self.distance[719] and self.distance[0] > 1:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                 self.turn()
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
 
             # Robot is closer to the right
-            elif self.distance[0] > self.distance[360] and self.distance[0] < 1:
+            elif self.distance[719] > self.distance[0] and self.distance[0] < 1:
                 self.turn()
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
