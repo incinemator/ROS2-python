@@ -14,7 +14,7 @@ class Maze_solver:
         # Angle variables
         self.angle = 0
         self.n_start = 0
-        self.n_end = 720
+        self.n_end = 719
 
     # Check the robot's distance from a single angle
     def check_distance_single(self):
@@ -60,7 +60,7 @@ class Maze_solver:
             if self.single_distance < 0.8:
                 print("Distance= ", self.single_distance)
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                self.turn(90)
+                self.turn()
                 self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                 self.check_distance()
 
