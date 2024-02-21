@@ -60,7 +60,7 @@ class Maze_solver:
             if self.single_distance < 0.8:
                 print("Distance= ", self.single_distance)
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                self.turn()
+                self.turn(90)
                 self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                 self.check_distance()
 
