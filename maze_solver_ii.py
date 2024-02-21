@@ -49,7 +49,7 @@ class Maze_solver:
     # moves forward step by step, checking wall distances in each step. 
     def solve(self):
 
-        while self.front_distance < 10:
+        while self.single_distance < 10:
 
             self.robotcontrol.move_straight_time(
                 "forward", self.linear_speed, self.linear_time)
