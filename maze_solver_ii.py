@@ -30,31 +30,33 @@ class Maze_solver:
     # This method checks the difference between left and right wall distance.
     # If the difference is greater than 0.1 it attempts to re-center the robot
     # and checks if it is in a corner.
+    # self.distance[0]: distance from the right
+    # self.distance[719]: distance from the left 
     def recenter(self):
-        if not abs(self.right_distance - self.left_distance) < 0.1:
+        if not abs(self.distance[0] - self.distance[719]) < 0.1:
             # Robot is closer to the left
-            if self.right_distance > self.left_distance and self.right_distance < 1:
-                self.turn_slight_right()
+            if self.distance[0] > self.distance[719] and self.distance[0] < 1:
+                self.turn(20)
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
             
             # Robot is in a left corner
-            elif self.right_distance > self.left_distance and self.right_distance > 1:
+            elif self.distance[0] > self.distance[719] and self.distance[0] > 1:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                self.turn_right()
+                self.turn(90)
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
 
             # Robot is closer to the right
-            elif self.left_distance > self.right_distance and self.left_distance < 1:
-                self.turn_slight_left()
+            elif self.distance[719] > self.distance[0] and self.distance[719] < 1:
+                self.turn(-20)
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
                 self.check_wall_distance()
 
             # Robot is in a right corner
-            elif self.left_distance > self.right_distance and self.left_distance > 1:
+            elif self.distance[719] > self.distance[0] and self.distance[719] > 1:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed, self.linear_time)
-                self.turn_left()
+                self.turn(-90)
                 self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
         else:
             self.robotcontrol.move_straight_time("forward", self.linear_speed, self.linear_time)
@@ -74,17 +76,17 @@ class Maze_solver:
 
             if self.front_distance < 0.8:
 
-                if self.left_diagonal - self.right_diagonal < 0:
-                    if self.left_distance < 0.5:
+                if self.distance[] - self.distance[] < 0:
+                    if self.distance[0] < 0.5:
                         print("Left corner, turning right")
                         self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                        self.turn_right_ortho()
+                        self.turn()
                         self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                         self.check_wall_distance()
-                    elif self.right_distance < 0.5:
+                    elif self.distance[360] < 0.5:
                         print("Right corner, turning left")
                         self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                        self.turn_left_ortho()
+                        self.turn()
                         self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                         self.check_wall_distance()
                     else:
@@ -95,7 +97,7 @@ class Maze_solver:
                         self.check_wall_distance()   
 
                 elif self.right_diagonal - self.left_diagonal < 0:
-                    if self.left_distance < 0.5:
+                    if self.distance[0] < 0.5:
                         print("Left corner, turning right")
                         self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                         self.turn_right_ortho()
