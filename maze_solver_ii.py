@@ -62,7 +62,7 @@ class Maze_solver:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                 self.turn()
                 self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
-                self.check_distance()
+                self.check_distance_single()
 
         
         print("Found the exit, heading out")
