@@ -12,7 +12,7 @@ class Maze_solver:
         self.linear_time = t
         self.linear_speed = lspeed
         # Angle variables
-        self.angle = 0
+        self.angle = 360
         self.n_start = 0
         self.n_end = 719
 
