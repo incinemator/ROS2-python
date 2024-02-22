@@ -11,11 +11,14 @@ class Maze_solver:
         self.distance = [None] * 720
         self.linear_time = t
         self.linear_speed = lspeed
+        self.average_right = 0
+        self.average_left = 0
         # Angle variables
         self.rotate_angle = 0
         self.lidar_index = 0
         self.n_start = 0
         self.n_end = 719
+        
 
     # Check the robot's distance from a single angle
     def check_distance_single(self):
@@ -61,10 +64,20 @@ class Maze_solver:
             if self.single_distance < 0.8:
                 print("Distance= ", self.single_distance)
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                self.rotate_angle = 90
-                self.turn()
-                self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
-                self.check_distance_single()
+                self.n_start = 0
+                self.n_start = 360
+                self.check_distance()
+                self.average_right = self.average_distance()
+                self.n_start = 360
+                self.n_end = 719
+                self.average_left = self.average_distance()
+
+                if self.average_left < self.average_right:
+                    self.rotate_angle = -90
+                    self.turn()
+                    self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
+                    self.check_distance_single()
+                    self.robotcontrol.stop_robot()
 
         
         print("Found the exit, heading out")
