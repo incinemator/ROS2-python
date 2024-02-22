@@ -12,13 +12,14 @@ class Maze_solver:
         self.linear_time = t
         self.linear_speed = lspeed
         # Angle variables
-        self.angle = 360
+        self.rotate_angle = 0
+        self.lidar_index = 0
         self.n_start = 0
         self.n_end = 719
 
     # Check the robot's distance from a single angle
     def check_distance_single(self):
-        self.single_distance = self.robotcontrol.get_laser(self.angle)
+        self.single_distance = self.robotcontrol.get_laser(self.lidar_index)
 
 
     # Check the robots distance from several angles
@@ -53,13 +54,14 @@ class Maze_solver:
 
             self.robotcontrol.move_straight_time(
                 "forward", self.linear_speed, self.linear_time)
-
+            self.lidar_index = 360
             self.check_distance_single()
             
 
             if self.single_distance < 0.8:
                 print("Distance= ", self.single_distance)
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
+                self.rotate_angle = 90
                 self.turn()
                 self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                 self.check_distance_single()
