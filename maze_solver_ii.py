@@ -33,7 +33,7 @@ class Maze_solver:
 
     # Turn the robot
     def turn(self):
-        self.robotcontrol.rotate(self.angle)
+        self.robotcontrol.rotate(self.rotate_angle)
 
     # Calculate average distance
     def average_distance(self):
