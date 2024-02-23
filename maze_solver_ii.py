@@ -23,12 +23,6 @@ class Maze_solver:
     # Check the robot's distance from a single angle
     def check_distance_single(self):
         self.single_distance = self.robotcontrol.get_laser(self.lidar_index)
-
-
-    # Check the robots distance from several angles
-    def check_distance(self):
-        for i in range(self.n_start, self.n_end):
-            self.distance[i] = self.robotcontrol.get_laser(i)
         
     # Move the robot forward
     def walk(self):
@@ -66,7 +60,7 @@ class Maze_solver:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                 self.n_start = 0
                 self.n_start = 360
-                self.check_distance()
+                self.distance = self.robotcontrol.get_laser_full
                 self.average_right = self.average_distance()
                 self.n_start = 360
                 self.n_end = 719
