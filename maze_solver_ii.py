@@ -88,6 +88,6 @@ class Maze_solver:
         self.robotcontrol.move_straight()
 
 
-ms1 = Maze_solver(0.1, 1)
+ms1 = Maze_solver(0.2, 1)
 # ms1.check_wall_distance()
 ms1.solve()
