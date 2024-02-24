@@ -25,7 +25,6 @@ class Maze_solver:
     # Get a sector of LIDAR measuerments    
     def get_lidar_sector(self):
         self.lidar_sector = np.copy(self.lidar_full[self.n_start:self.n_end])
-
         return self.lidar_sector 
 
 
