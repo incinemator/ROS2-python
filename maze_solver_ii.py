@@ -59,7 +59,7 @@ class Maze_solver:
 
             if self.single_distance < 0.8:
                 print("Distance= ", self.single_distance)
-                self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
+                #self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                 self.n_start = 0
                 self.n_end = 359
                 self.lidar_full = self.robotcontrol.get_laser_full()
