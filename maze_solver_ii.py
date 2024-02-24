@@ -62,7 +62,7 @@ class Maze_solver:
                 print("Distance= ", self.single_distance)
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                 self.n_start = 0
-                self.n_end = 360
+                self.n_end = 359
                 self.lidar_full = self.robotcontrol.get_laser_full
                 self.get_lidar_sector()
                 self.average_right = mean(self.lidar_sector)
