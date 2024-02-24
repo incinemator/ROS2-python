@@ -66,10 +66,12 @@ class Maze_solver:
                 self.lidar_full = self.robotcontrol.get_laser_full
                 self.get_lidar_sector()
                 self.average_right = mean(self.lidar_sector)
+                print("Average distance to the right: ", self.average_right)
                 self.n_start = 360
                 self.n_end = 719
                 self.get_lidar_sector()
                 self.average_left = mean(self.lidar_sector)
+                print("Average distance to the left: ", self.average_left)
 
                 if self.average_left < self.average_right:
                     self.rotate_angle = -90
