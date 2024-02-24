@@ -1,6 +1,5 @@
 from robot_control_class import RobotControl
 from statistics import mean
-import numpy as np
 import time
 
 
@@ -9,8 +8,8 @@ class Maze_solver:
     def __init__(self, lspeed, t):
         self.robotcontrol = RobotControl()
         self.single_distance = 0
-        self.lidar_sector = np.zeros(720)
-        self.lidar_full = np.zeros(720)
+        self.lidar_sector = [0.0] * 720 
+        self.lidar_full = [0.0] * 720
         self.linear_time = t
         self.linear_speed = lspeed
         self.average_right = 0
@@ -24,7 +23,8 @@ class Maze_solver:
 
     # Get a sector of LIDAR measuerments    
     def get_lidar_sector(self):
-        self.lidar_sector = np.copy(self.lidar_full[self.n_start:self.n_end])
+        for i in range(self.n_start, self.n_end):
+            self.lidar_sector[i] = self.lidar_full[i]
         return self.lidar_sector 
 
 
@@ -62,7 +62,7 @@ class Maze_solver:
                 self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
                 self.n_start = 0
                 self.n_end = 359
-                self.lidar_full = self.robotcontrol.get_laser_full
+                self.lidar_full = self.robotcontrol.get_laser_full()
                 self.get_lidar_sector()
                 self.average_right = mean(self.lidar_sector)
                 print("Average distance to the right: ", self.average_right)
