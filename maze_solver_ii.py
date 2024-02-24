@@ -24,7 +24,7 @@ class Maze_solver:
     # Get a sector of LIDAR measuerments    
     def get_lidar_sector(self):
         for i in range(self.n_start, self.n_end):
-            self.lidar_sector = self.lidar_full[i]
+            self.lidar_sector[i] = self.lidar_full[i]
 
         return self.lidar_sector 
 
