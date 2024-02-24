@@ -8,7 +8,7 @@ class Maze_solver:
     def __init__(self, lspeed, t):
         self.robotcontrol = RobotControl()
         self.single_distance = 0
-        self.quarter = [0.0] * 360
+        self.lidar_sector = [0.0] * 360
         self.linear_time = t
         self.linear_speed = lspeed
         self.average_right = 0
