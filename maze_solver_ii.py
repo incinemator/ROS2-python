@@ -9,7 +9,7 @@ class Maze_solver:
         self.robotcontrol = RobotControl()
         self.single_distance = 0
         self.lidar_sector = [0.0] * 360
-        self.lidar_full = 0
+        self.lidar_full = [0.0] * 720
         self.linear_time = t
         self.linear_speed = lspeed
         self.average_right = 0
@@ -24,7 +24,7 @@ class Maze_solver:
     # Get a sector of LIDAR measuerments    
     def get_lidar_sector(self):
         for i in range(self.n_start, self.n_end):
-            self.lidar_sector = self.robotcontrol.get_laser(i)
+            self.lidar_sector = self.lidar_full[i]
 
         return self.lidar_sector 
 
