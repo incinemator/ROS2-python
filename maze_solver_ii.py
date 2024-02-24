@@ -8,8 +8,7 @@ class Maze_solver:
     def __init__(self, lspeed, t):
         self.robotcontrol = RobotControl()
         self.single_distance = 0
-        self.left_quarter = [0.0] * 360
-        self.right_quarter = [0.0] * 360
+        self.quarter = [0.0] * 360
         self.linear_time = t
         self.linear_speed = lspeed
         self.average_right = 0
@@ -20,7 +19,9 @@ class Maze_solver:
         self.n_start = 0
         self.n_end = 719
         
-
+    def get_lidar_sector(self):
+        for i in range(self.n_start, self.n_end):
+            self.quarter = self.robotcontrol.get_laser(i) 
     # Check the robot's distance from a single angle
     def check_distance_single(self):
         self.single_distance = self.robotcontrol.get_laser(self.lidar_index)
@@ -56,7 +57,8 @@ class Maze_solver:
                 self.n_start = 0
                 self.n_start = 360
                 self.distance = self.robotcontrol.get_laser_full
-                self.average_right = self.average_distance()
+                self.right_quarter = 
+                self.average_right = mean(self.right_quarter)
                 self.n_start = 360
                 self.n_end = 719
                 self.average_left = self.average_distance()
