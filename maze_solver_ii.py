@@ -77,6 +77,11 @@ class Maze_solver:
                     self.turn()
                     self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                     self.check_distance_single()
+                else:
+                    self.rotate_angle = 90
+                    self.turn()
+                    self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
+                    self.check_distance_single()
 
         
         print("Found the exit, heading out")
