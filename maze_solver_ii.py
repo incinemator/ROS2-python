@@ -14,6 +14,7 @@ class Maze_solver:
         self.linear_speed = lspeed
         self.average_right = 0
         self.average_left = 0
+        self.average_sector = 0
         # Angle variables
         self.rotate_angle = 0
         self.lidar_index = 0
@@ -57,6 +58,14 @@ class Maze_solver:
             self.check_distance_single()
 
             # Check if robot is near the exit
+            self.n_start = 0
+            self.n_end = 180
+            self.get_lidar_sector()
+            self.average_sector = mean(self.lidar_sector)
+            if self.average_sector > 10:
+                break
+            
+
             
 
             if self.single_distance < 0.8:
