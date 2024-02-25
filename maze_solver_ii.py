@@ -55,6 +55,8 @@ class Maze_solver:
                 "forward", self.linear_speed, self.linear_time)
             self.lidar_index = 360
             self.check_distance_single()
+
+            # Check if robot is near the exit
             
 
             if self.single_distance < 0.8:
@@ -84,7 +86,7 @@ class Maze_solver:
                     self.check_distance_single()
             
 
-        self.lidar_full = self.robotcontrol.get_laser_full()
+        
         print("Found the exit, heading out")
         self.robotcontrol.move_straight()
 
