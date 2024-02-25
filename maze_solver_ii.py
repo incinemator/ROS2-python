@@ -82,8 +82,9 @@ class Maze_solver:
                     self.turn()
                     self.robotcontrol.move_straight_time("forward",self.linear_speed,self.linear_time)
                     self.check_distance_single()
+            
 
-        
+        self.lidar_full = self.robotcontrol.get_laser_full()
         print("Found the exit, heading out")
         self.robotcontrol.move_straight()
 
