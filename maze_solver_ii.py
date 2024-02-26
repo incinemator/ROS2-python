@@ -74,8 +74,7 @@ class Maze_solver:
                 # get left quaternion
                 self.get_lidar_sector(360, 719)
                 self.average_left = mean(self.lidar_sector)
-                
-
+            
                 if self.average_left < self.average_right:
                     self.rotate_angle = -90
                     self.turn()
