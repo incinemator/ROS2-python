@@ -65,7 +65,7 @@ class Maze_solver:
             
 
             if self.single_distance < 0.8:
-                print("Distance= ", self.single_distance)           
+                         
                 self.lidar_full = self.robotcontrol.get_laser_full()
                 # get right quaternion
                 self.get_lidar_sector(0, 359)
