@@ -65,20 +65,14 @@ class Maze_solver:
                 break
             
 
-            
-
             if self.single_distance < 0.8:
                 print("Distance= ", self.single_distance)
                 #self.robotcontrol.move_straight_time("backward", self.linear_speed,self.linear_time)
-                self.n_start = 0
-                self.n_end = 359
                 self.lidar_full = self.robotcontrol.get_laser_full()
                 self.get_lidar_sector(0, 359)
                 self.average_right = mean(self.lidar_sector)
                 print("Average distance to the right: ", self.average_right)
-                self.n_start = 360
-                self.n_end = 719
-                self.get_lidar_sector()
+                self.get_lidar_sector(360, 719)
                 self.average_left = mean(self.lidar_sector)
                 print("Average distance to the left: ", self.average_left)
 
