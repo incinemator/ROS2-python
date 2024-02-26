@@ -57,8 +57,7 @@ class Maze_solver:
             self.lidar_index = 360
             self.check_distance_single()
 
-            # Check if robot is near the exit
-            
+            # check if robot is near the exit
             self.get_lidar_sector(0, 180)
             self.average_sector = mean(self.lidar_sector)
             if self.average_sector > 10:
@@ -66,10 +65,9 @@ class Maze_solver:
             
 
             if self.single_distance < 0.8:
-                print("Distance= ", self.single_distance)
-                
+                print("Distance= ", self.single_distance)           
                 self.lidar_full = self.robotcontrol.get_laser_full()
-
+                # check if robot is near a right corner
                 self.get_lidar_sector(0, 359)
                 self.average_right = mean(self.lidar_sector)
                 print("Average distance to the right: ", self.average_right)
