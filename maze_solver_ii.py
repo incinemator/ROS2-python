@@ -23,8 +23,8 @@ class Maze_solver:
 
 
     # Get a sector of LIDAR measuerments    
-    def get_lidar_sector(self):
-        for i in range(self.n_start, self.n_end):
+    def get_lidar_sector(self, n_start, n_end):
+        for i in range(n_start, n_end):
             self.lidar_sector[i] = self.lidar_full[i]
         return self.lidar_sector 
 
@@ -58,9 +58,8 @@ class Maze_solver:
             self.check_distance_single()
 
             # Check if robot is near the exit
-            self.n_start = 0
-            self.n_end = 180
-            self.get_lidar_sector()
+            
+            self.get_lidar_sector(0, 180)
             self.average_sector = mean(self.lidar_sector)
             if self.average_sector > 10:
                 break
@@ -74,7 +73,7 @@ class Maze_solver:
                 self.n_start = 0
                 self.n_end = 359
                 self.lidar_full = self.robotcontrol.get_laser_full()
-                self.get_lidar_sector()
+                self.get_lidar_sector(0, 359)
                 self.average_right = mean(self.lidar_sector)
                 print("Average distance to the right: ", self.average_right)
                 self.n_start = 360
