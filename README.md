@@ -1,2 +1,2 @@
-# ROS2-python
-Python programs for 
+# RoboNavigation 2
+Python implementation of SLAM algorithms on simulated robots for testing.  
